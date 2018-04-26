@@ -14,6 +14,9 @@
 		D65176CC2091D12C00FB3B4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65176CA2091D12C00FB3B4C /* LaunchScreen.storyboard */; };
 		D65176D72091D12C00FB3B4C /* beacon_projectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65176D62091D12C00FB3B4C /* beacon_projectTests.swift */; };
 		D65176E22091D12C00FB3B4C /* beacon_projectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65176E12091D12C00FB3B4C /* beacon_projectUITests.swift */; };
+		D65176F02091FAAF00FB3B4C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65176EF2091FAAF00FB3B4C /* LoginViewController.swift */; };
+		D65176F2209205FB00FB3B4C /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65176F1209205FB00FB3B4C /* QRCodeViewController.swift */; };
+		D65176F420920FB300FB3B4C /* testFile.json in Resources */ = {isa = PBXBuildFile; fileRef = D65176F320920FB300FB3B4C /* testFile.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		D65176DD2091D12C00FB3B4C /* beacon_projectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = beacon_projectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D65176E12091D12C00FB3B4C /* beacon_projectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = beacon_projectUITests.swift; sourceTree = "<group>"; };
 		D65176E32091D12C00FB3B4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D65176EF2091FAAF00FB3B4C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D65176F1209205FB00FB3B4C /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
+		D65176F320920FB300FB3B4C /* testFile.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = testFile.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,9 @@
 				D65176C82091D12C00FB3B4C /* Assets.xcassets */,
 				D65176CA2091D12C00FB3B4C /* LaunchScreen.storyboard */,
 				D65176CD2091D12C00FB3B4C /* Info.plist */,
+				D65176EF2091FAAF00FB3B4C /* LoginViewController.swift */,
+				D65176F1209205FB00FB3B4C /* QRCodeViewController.swift */,
+				D65176F320920FB300FB3B4C /* testFile.json */,
 			);
 			path = beacon_project;
 			sourceTree = "<group>";
@@ -230,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D65176CC2091D12C00FB3B4C /* LaunchScreen.storyboard in Resources */,
+				D65176F420920FB300FB3B4C /* testFile.json in Resources */,
 				D65176C92091D12C00FB3B4C /* Assets.xcassets in Resources */,
 				D65176C72091D12B00FB3B4C /* Main.storyboard in Resources */,
 			);
@@ -256,7 +266,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D65176F02091FAAF00FB3B4C /* LoginViewController.swift in Sources */,
 				D65176C42091D12B00FB3B4C /* ViewController.swift in Sources */,
+				D65176F2209205FB00FB3B4C /* QRCodeViewController.swift in Sources */,
 				D65176C22091D12B00FB3B4C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
