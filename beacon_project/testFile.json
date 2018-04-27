@@ -1,20 +1,4 @@
-[
- {
- "users":[
-    {
-          "username" : "quentin",
-          "password" : "1234"
-    },
- 
-    {
-          "userame" : "chris"
-          "password" : "test"
-    },
- 
-    {
-          "username" : "root"
-          "password" : "root"
-    },
- ]
- }
-]
+{
+    "Email": "quentin@gmail.com",
+    "Password": "root"
+}

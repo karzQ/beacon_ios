@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-    var username : String = ""
-    var stayConnected : Bool = false
+    var username : String = UserDefaults.standard.string(forKey: "username")!
+    var stayConnected : Bool = UserDefaults.standard.bool(forKey: "stayConnected")
 }
 

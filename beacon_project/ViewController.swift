@@ -21,20 +21,30 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
      Si l'on est dans la cours, on est toujours dans la région.
      MAIS si l'on est dans la salle de cours, on a un QR-Code à envoyer au serveur pour attester de notre présence.
      
-     UI : Pas de demande
-     HTTP : Récupérer les données venant d'une API
+     UI : Pas de demande particulière
+     
+     HTTP : Récupérer les données venant d'une API à l'aide des routes données
+     POST /api/login
+     POST /api/refreshToken
+     GET /api/getLocation (salle prévue)
+     POST /api/checkIn
+     POST /getQRCode
+     
      Beacon : On ne peut pas tester de manière réelle.
+     
      QR-Code : afficher un QR-Code à envoyer au serveur
      */
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        helloLabel.text = "Bonjour \(appDelegate?.username ?? "Name") !"
+        helloLabel.text = "Bonjour \(appDelegate?.username ?? "Name")."
         
         let layerScanButton = scanButton.layer
         layerScanButton.cornerRadius = 5
+        
         
         
         //Heading = directio,
