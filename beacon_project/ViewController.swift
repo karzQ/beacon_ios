@@ -45,8 +45,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let layerScanButton = scanButton.layer
         layerScanButton.cornerRadius = 5
         
-        
-        
         //Heading = directio,
         //CLRegion différence entre les zones où l'on est ou pas => zone géographique
         //on veut savoir quand on va dedans, qu'on va dehors et que l'on passe la frontière
@@ -63,6 +61,32 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             startRanging()
         }
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let session = URLSession.shared
+        let u = URL(string: "/api/")
+        var request = URLRequest(url: u!)
+        
+        request.httpMethod = "POST"
+        request.setValue("Allow-Compression", forHTTPHeaderField: "true")
+        request.httpBody = "{\"hello\" : \"hello\"}".data(using: .utf8)
+        
+        /*
+ 
+         let u = URL(string: "http://www.perdu.com")
+         var request = URLRequest(url: u!)
+         request.httpMethod = "GET"
+         
+         let task = session.dataTask(with: request) { (data, res, err) in
+            if let d = data {
+                print(String(data: d, encoding: .utf8))
+                if let o = (try? JSONSerialization.jsonObject(with: d, options: [])) as? [String:Any] {
+                    let dataOut = try? JSONSerialization.data(withJSONObject: o, options: .prettyPrinted)
+                }
+            }
+         }
+         task.resume()*/
     }
     
     fileprivate func startRanging(){

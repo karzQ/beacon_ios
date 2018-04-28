@@ -56,14 +56,6 @@ class LoginViewController: UIViewController {
         let path = Bundle.main.path(forResource: "testFile", ofType: "json")
         let url = URL(fileURLWithPath: path!)
         
-        /*let session = URLSession.shared
-        let u = URL(string: "/api/")
-        var request = URLRequest(url: u!)
-        
-        request.httpMethod = "POST"
-        request.setValue("Allow-Compression", forHTTPHeaderField: "true")
-        request.httpBody = "{\"hello\" : \"hello\"}".data(using: .utf8)*/
-        
         do{
             let data = try? Data(contentsOf: url)
             let login = try? JSONDecoder().decode([String:String].self, from: data!)
@@ -101,14 +93,79 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func testData(_ sender: Any) {
-        let session = URLSession.shared
-        let u = URL(string: "/api/")
+        //let session = URLSession.shared
+        /*let u = URL(string: "https://d1a32b63.ngrok.io/api/login")
         var request = URLRequest(url: u!)
     
         request.httpMethod = "POST"
         request.setValue("Allow-Compression", forHTTPHeaderField: "true")
-        request.httpBody = "{\"hello\" : \"hello\"}".data(using: .utf8)
+        request.httpBody = "{\"hello\" : \"hello\"}".data(using: .utf8)*/
         
+        /*let session = URLSession.shared
+        let u = URL(string: "https://d1a32b63.ngrok.io/api/login")
+        var request = URLRequest(url: u!)
+        
+        request.httpMethod = "POST"*/
+        
+        // Trouvé à : https://stackoverflow.com/questions/48720925/swift-4-send-post-request-as-x-www-form-urlencoded?noredirect=1&lq=1
+        /*request.setValue("Allow-Compression", forHTTPHeaderField: "true")
+        let pwd = pwdField.text
+        let login = usernameField.text
+        
+        request.httpBody = "email=\(usernameField.text ?? "")&password=\(pwdField.text ?? "")".data(using: .utf8)
+        
+        let task = session.dataTask(with: request) { (data, res, err) in
+            if let d = data {
+                print(String(data: d, encoding: .utf8) as Any)
+                if let o = (try? JSONSerialization.jsonObject(with: d, options: [])) as? [String:Any] {
+                    let dataOut = try? JSONSerialization.data(withJSONObject: o, options: .prettyPrinted)
+                    
+                    print(o)
+                    print(dataOut as Any)
+                }
+                
+                print(data as Any)
+            }
+        }
+        
+        print(task.debugDescription)
+        print(task.description)
+        print(task.resume())
+        task.resume()*/
+        
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        let session = URLSession.shared
+        let u = URL(string: "https://d1a32b63.ngrok.io/api/login")
+        var request = URLRequest(url: u!)
+        request.httpMethod = "POST"
+        request.setValue("Allow-Compression", forHTTPHeaderField: "true")
+        request.httpBody = "email=\(usernameField.text ?? "")&password=\(pwdField.text ?? "")".data(using: .utf8)
+        
+        let task = session.dataTask(with: request) {
+            (data, response, error) in
+            if let d = data {
+                if let o = (try? JSONSerialization.jsonObject(with: d, options: [])) as? [String:String] {
+                    
+                    UserDefaults.standard.set(true, forKey: o["token"]!)
+                    
+                    if let nextPage = self.storyboard?.instantiateViewController(withIdentifier: "listAlertView") as? ViewController{
+                        self.navigationController?.pushViewController(nextPage, animated: true)
+                    }
+                } else {
+                    return
+                }
+            } else {
+                let alert = UIAlertController(title: "Error", message: "Wrong identifiers", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                
+                self.present(alert, animated: true)
+            }
+        }
+        
+        task.resume()
+    }
+    
+    fileprivate func encryptSha512(text : String){
         
     }
     
@@ -121,7 +178,4 @@ class LoginViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    
-
 }

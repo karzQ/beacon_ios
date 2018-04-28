@@ -25,7 +25,10 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>&quot;PAske ahahah&quot;</string>
 	<key>NSAppTransportSecurity</key>
-	<dict/>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
