@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CryptoSwift
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var buttonConnectToApp: UIButton!
@@ -19,6 +20,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        hashing()
         
         self.view.addSubview(loginSubView)
         
@@ -165,8 +168,9 @@ class LoginViewController: UIViewController {
         task.resume()
     }
     
-    fileprivate func encryptSha512(text : String){
-        
+    func hashing() {
+        let hash = "password".sha512();
+        print("password hashé : " + hash)
     }
     
     /*
