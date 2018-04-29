@@ -7,6 +7,6 @@ Certaines librairies ont été utilisés pour ce projet comme CryptoSwift. Pour 
 [Plus d'information sur Carthage](https://github.com/Carthage/Carthage#getting-started)
 
 Participants :
-Quentin Karczinski
+Quentin Karczinski,
 Christopher Loubassou
 
